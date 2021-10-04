@@ -1,0 +1,41 @@
+<html>
+
+<head>
+	<title> Pagina Principal </title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+
+<body>
+
+	<form method="post" action='/create' enctype="multipart/form-data">	
+	
+	<ul>
+		<li>
+			<label for="nombreDoc">Ingrese el nombre del documento:</label>
+			<input type="text" name="nombreDoc">
+		</li>
+        	<li>
+			<label for="autor">Indique el autor:</label>
+			<input type="text" name="autor">
+        	</li>
+		<li>
+			<label for="fecha">Ingrese la fecha:</label>
+			<input type="text" name="fecha">
+        	</li>
+		<li>
+			<label for="archivo">Ingrese el documento:</label>
+			<input type="file" name="archivo">
+		</li>
+		
+        	<input type="submit" name="boton" value="Crear">
+	</ul>
+
+	</form>
+	
+</body>
+
+<footer>
+
+</footer>
+
+</html>
