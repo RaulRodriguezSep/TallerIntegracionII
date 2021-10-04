@@ -27,25 +27,48 @@ def export(document, id):
 def edit(document, id):
     return render_template('edit.html')
 
-@app.route('/probar', methods=['POST'])
-def create_doc():
-    nombreDoc = request.json['nombreDoc']
-    autor = request.json['autor']
-    fecha = request.json['fecha']
 
-    if nombreDoc and autor and fecha:
+@app.route('/probar')
+def guardardoc():
+    return'''
+    <h3> Subir Documento </h3>
+    <form method="POST", action="/create", enctype="multipart/form-data">
+        <label for="nombreDoc">Ingrese el nombre del documento</label>
+        <input type="text" name="nombreDoc">
+        
+        <label for="autor">Indique el autor</label>
+        <input type="text" name="autor">
+        
+        <label for="fecha">Ingrese la fecha</label>
+        <input type="text" name="fecha">
+        
+        <label for="archivo">Ingrese el documento</label>
+        <input type="file" name="archivo">
+        <input type="submit">'''
+
+@app.route('/create', methods=['POST'])
+def create_doc():
+    if request.form.get('nombreDoc') and request.form.get('autor') and request.form.get('fecha') and "archivo" in request.files:
+        archivo = request.files["archivo"]
+        mongo.save_file(archivo.filename, archivo)
         id =  mongo.db.documentos.insert(
-       {'nombreDoc':nombreDoc, 'autor':autor, 'fecha':fecha}
+       {'nombreDoc': request.form.get('nombreDoc'), 'autor':request.form.get('autor'), 'fecha':request.form.get('fecha'), 'nombredoc': archivo.filename}
        )
         response ={
             'id': str(id),
-            'nombreDoc': nombreDoc,
-            'autor': autor,
-            'fecha': fecha
+            'nombreDoc': request.form.get('nombreDoc'),
+            'autor': request.form.get('autor'),
+            'fecha': request.form.get('fecha'),
+            'nombredoc': archivo.filename
             }   
         return response
     else:{'massage':'recived'}
     return{'massage':'recived'}
+
+@app.route('/file/<filename>')
+def file(filename):
+    return mongo.send_file(filename)
+
 
 app.run(debug = True)
 
