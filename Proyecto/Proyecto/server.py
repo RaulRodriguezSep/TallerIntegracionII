@@ -27,25 +27,6 @@ def export(document, id):
 def edit(document, id):
     return render_template('edit.html')
 
-
-@app.route('/probar')
-def guardardoc():
-    return'''
-    <h3> Subir Documento </h3>
-    <form method="POST", action="/create", enctype="multipart/form-data">
-        <label for="nombreDoc">Ingrese el nombre del documento</label>
-        <input type="text" name="nombreDoc">
-        
-        <label for="autor">Indique el autor</label>
-        <input type="text" name="autor">
-        
-        <label for="fecha">Ingrese la fecha</label>
-        <input type="text" name="fecha">
-        
-        <label for="archivo">Ingrese el documento</label>
-        <input type="file" name="archivo">
-        <input type="submit">'''
-
 @app.route('/create', methods=['POST'])
 def create_doc():
     if request.form.get('nombreDoc') and request.form.get('autor') and request.form.get('fecha') and "archivo" in request.files:
