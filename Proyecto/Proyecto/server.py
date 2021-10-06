@@ -5,7 +5,7 @@ from werkzeug.wrappers import response
 from pymongo import MongoClient
 
 app = Flask(__name__)
-app.config['MONGO_URI']='mongodb://localhost:27017/pruebassss'
+app.config['MONGO_URI']='mongodb://localhost:27017/db'
 mongo=PyMongo(app)
 
 client = MongoClient('mongodb://localhost:27017')
