@@ -2,14 +2,22 @@ from flask import Flask, request
 from flask import render_template
 from flask_pymongo import PyMongo
 from werkzeug.wrappers import response
+from pymongo import MongoClient
 
 app = Flask(__name__)
 app.config['MONGO_URI']='mongodb://localhost:27017/pruebassss'
 mongo=PyMongo(app)
 
+client = MongoClient('mongodb://localhost:27017')
+db = client.db
+documents = db.documentos
+
 @app.route('/')
 def home():
-    return render_template('index.html')
+    
+    cursor = documents.find()
+    
+    return render_template('index.html', cursor=cursor)
 
 @app.route('/add')
 def add():
