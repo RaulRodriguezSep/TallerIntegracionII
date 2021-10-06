@@ -21,7 +21,7 @@ def home():
 
 @app.route('/add')
 def add():
-    return 'Agregar documento'
+    return render_template('add.html')
 
 @app.route('/delete/<document>/<id>/')
 def delete(document, id):
