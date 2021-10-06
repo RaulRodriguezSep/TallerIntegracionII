@@ -1,0 +1,15 @@
+body{
+	background-color: orange;
+}
+
+table,td{
+	border: 2px solid black;
+	padding: 6px;
+	text-align: center;
+	margin: 0 auto;
+	border-collapse: collapse; 
+}
+
+h3{
+	text-align: center;
+}
