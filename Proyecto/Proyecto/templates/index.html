@@ -7,6 +7,27 @@
 
 <body>
 	<h3> Menu de documentos </h3>
+	
+	<a href="/add">Agregar</a>
+		
+		<div id='div01'>
+			<table style="border-collapse: collapse;" border="1"; width="520" text-align=center;>
+				<tr>
+						<td><b>Nombre</b></td>
+						<td><b>Autor</b></td>
+						<td><b>Fecha</b></td>
+						<td><b>Archivo</b></td>
+				</tr>
+				{% for documentos in cursor %}
+				<tr>
+						<td>{{documentos['nombreDoc']}}</td>
+						<td>{{documentos['autor']}}</td>
+						<td>{{documentos['fecha']}}</td>
+						<td>{{documentos['nombredoc']}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
 </body>
 
 <footer>
