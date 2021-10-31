@@ -1,0 +1,9 @@
+{
+            "name": "elgg/editor",
+            "type": "elgg-plugin",
+            "description": "MyBlog",
+            "license": "GPL-2.0-only",
+            "require": {
+                    "composer/installers": "^1.0.8"
+            }
+    }
