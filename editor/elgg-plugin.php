@@ -27,9 +27,13 @@ return [
                                 'revision' => '\d+',
                         ],
                 ],
-				'collection:object:document:all' => [
-					'path' => '/editor/all',
-					'resource' => 'document/all',
-				],
+		'export:object:document' => [
+                        'path' => '/editor/export/{guid?}',
+                        'resource' => 'document/export',
+                ],
+		'collection:object:document:all' => [
+			'path' => '/editor/all',
+			'resource' => 'document/all',
 		],
+	],
 ];
