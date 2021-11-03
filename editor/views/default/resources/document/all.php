@@ -8,7 +8,7 @@ $pagetitle = "Documentos creados";
 
 $body = elgg_list_entities(array(
     'type' => 'object',
-    'subtype' => 'file',
+    'subtype' => 'document',
 ));
 
 echo elgg_view_page($titlebar, [
