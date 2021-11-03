@@ -9,7 +9,7 @@ $document->title = $title;
 $document->description = $body;
 $document->tags = $tags;
 
-$document->setSubtype('document');
+$document->subtype = 'document';
 
 $document->access_id = ACCESS_PUBLIC;
 
