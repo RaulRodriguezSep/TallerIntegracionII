@@ -1,9 +1,0 @@
-{
-            "name": "elgg/proyecto",
-            "type": "elgg-plugin",
-            "description": "Proyecto de Taller de integracion II",
-            "license": "GPL-2.0-only",
-            "require": {
-                    "composer/installers": "^1.0.8"
-            }
-    }
